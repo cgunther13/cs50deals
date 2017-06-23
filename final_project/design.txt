@@ -1,0 +1,83 @@
+The design for CS50 Deals was largely based off of the CS50 Finance website
+from problem set 7.  As with that pset, we followed the modal view control 
+format, putting our control, logic code in the public folder, the view, html
+code in the views folder, and our modal, SQL code in Final_Project.sql (SQL 
+tables downloaded from myphpadmin).
+
+Since there are 2 different user types for C$50 Deals (namely users and vendors),
+we created 2 files each for registering and loging in. These files, along with 
+logout.php, are adapted from pset 7 since they do the same thing, and we could 
+be confident that they are secure and functional. Meanwhile, we created 
+deals.php from scratch, with some help from the Twilio documentation. This file 
+takes the deal input and immediately sends the text message. We designed it like
+this to limit dealys and simplify the code. We also made the text personalized,
+as we think it adds a nice touch. We also created preferences.php from scratch, 
+designing it so that a user can choose to receive either food, other, or 
+randomly food or other deals. Lastly, today.php and vendors.php were included as 
+a design decision to allow users to view the current deals and vendors. We get 
+this data by drawing it from the SQL table and concatenating it into a single 
+string, so that it can be easily passed to the view file. 
+
+In all these files, we performed rigorous error checking to make sure all forms
+were submitted, 1 and only 1 type box was selected, and that overall the site 
+functions as we want. 
+
+We also updated helpers.php to customize the header to the type of user (user or
+vendor) and input welcome and today functions to simplify the code in 
+preferences.php and today.php.
+
+We have numerous view files in the view folder that display the site to the user. 
+There are 2 of each header, login_form, register_form, password_form, 
+password_display form (1 for the user and 1 one for the vendor), but a constant
+footer.php view. This decision was made, although it expands the code, to make
+the site more customized. We were able to keep one view for apology, dump, 
+footer, and unsubscribe (same between types of users), however, as well as 1 for 
+confirm, preferences_form, today_form, today_display, and welcome (only the user 
+ever sees those), and for deals_form (only the vendor ever sees that).
+
+We wrote a sigficant amount of html and css code in order to ensure that the 
+website was aesthetically pleasing and easy to understand. We thought it was 
+important to incorporate photos of the participating vendors to help with
+advertising for the small businesses. In order to get the deals from the vendors
+we spent several afternoons walking from door to door pleading for the companies
+to help us with our project.  The meetings we had with the store owners ended up
+being invaluable life experiences and we learned so much more than we ever 
+anticipated.
+
+As far as the modal code, we created a SQL database that contains all of the 
+users' information, incuding their username, password, phone number and 
+prefernece for which kind of deal they would like to receive. We then use that 
+SQL table, called "users" to access data about the registered user and send them 
+the appropriate messages. Their information is stored so that once they register 
+for the first time, they can later log in to the website using that information. 
+Also, the usernames and phone numbers are unique so one person can't try to 
+receive multiple deals per day. We additionally included functionality to hash 
+the passwords to make the site more secure, and to allow the user to change 
+their passwords and their preferences by updating the SQL table. 
+
+There is a seperate SQL table the vendors that includes their company name, a 
+username, their "deal of the day", or the deal that will be sent out to the 
+registered users and the deal type to make it easier to send the right deals to 
+the right customers. When they click submit for that deal, it is automatically 
+texted out to the customers, via deals.php. Upon receipt of that text message,
+the registered users can visit said establishment, show the text, and receive 
+the deal. Usernames are unique in this table, but we decided not to make vendor 
+names unique so that multiple employees at one vendor can have an account.
+
+The great thing about our platform and website is that it is easy for the vendor 
+to change their deal whenever they see fit, as they are only stored in the SQL 
+table for 24 hours. Deals are automatically deleted at midnight using a SQL 
+event we created called remove. The vendors can also login using their 
+registered information when returning to the site, and have the capability of 
+changing their passwords. 
+
+Both SQL tables also have auto-incremebting ids to make it easier to work with. 
+
+We used the Twilio API to help send the text messages out, and it also has other
+functions such as unsubscribe if a user no longer wants to receive the daily 
+deal. The twilio was easily implemented through the IDE in deals.php and 
+requires our own unique account information. We purchased an account because 
+each text sent costs .075 cents (currently only have $20 dollars on the Twilio 
+account, which should be more than enough). The messages are sent from a number 
+created for us by Twilio at a rate of 1 message per second.  
+

@@ -1,0 +1,95 @@
+/**
+ * styles.css
+ *
+ * Computer Science 50
+ * Problem Set 7
+ *
+ * Global CSS.
+ */
+
+.container
+{
+    /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#top
+{
+    /* surround with whitespace */
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#top .nav
+{
+    /* center navigation pills */
+    display: inline-block;
+    font-family: Capitals;
+}
+
+#middle .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+    
+    font-family: Calibri;
+}
+
+#bottom
+{
+    /* shrink bottom's font size */
+    font-size: smaller;
+
+    /* surround with whitespace */
+    margin: 20px;
+}
+
+.title
+{
+    color: green;
+    font-family: comic;
+}
+
+.fineprint
+{
+    font-size: 10px;
+}
+
+.welcome
+{
+    font-family: Capitals;
+}
+
+.img_anaya
+{
+    position: absolute;
+    TOP: 250px;
+    LEFT: 185px;
+    width:15%;
+    height: 15%;
+    background: no-repeat;
+}
+.img_salsafresca
+{
+    position: absolute;
+    TOP: 250px;
+    LEFT: 1000px;
+    width: 375px;
+    height: 375px;
+    overflow: hidden;
+    background: no-repeat;
+}
+.img_ashleys
+{
+    position: absolute;
+    TOP: 390px;
+    LEFT: 30px;
+    max-width: 50%;
+    max-height: 50%;
+    background: no-repeat;
+}
