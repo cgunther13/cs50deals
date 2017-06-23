@@ -1,1 +1,1 @@
-<?php include_once("views/login_form.php"); ?>
+<?php header( 'Location: /views/login_form.php' ) ;  ?>
