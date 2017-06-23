@@ -18,17 +18,17 @@
     {
         render("apology.php", ["message" => $message]);
     }
-    
-    /** 
-     * Welcomes the user to the site with a customized message 
+
+    /**
+     * Welcomes the user to the site with a customized message
      * (based on their preferences).
      */
     function welcome($message)
     {
         render("welcome.php", ["title" => "Welcome", "message" => $message]);
     }
-    
-    /** 
+
+    /**
      * Prints today's deal to the user, customized to their preferences.
      */
     function today($type, $deal)
@@ -95,8 +95,8 @@
         {
             // extract variables into local scope
             extract($values);
-            
-            if ($view == "deals_form.php" || $view == "confirm.php" || 
+
+            if ($view == "deals_form.php" || $view == "confirm.php" ||
             $view == "vpassword_form.php" || $view == "vpassword_display.php")
             {
                 // render vendor header and footer views
@@ -104,10 +104,10 @@
                 require("../views/{$view}");
                 require("../views/footer.php");
             }
-            
-            else if ($view == "preferences_form.php" || $view == "password_form.php" || 
-            $view == "password_display.php" || $view == "today_form.php" || 
-            $view == "today_display.php" || $view == "welcome.php" || 
+
+            else if ($view == "preferences_form.php" || $view == "password_form.php" ||
+            $view == "password_display.php" || $view == "today_form.php" ||
+            $view == "today_display.php" || $view == "welcome.php" ||
             $view == "vendors_form.php" || $view == "unsubscribe_form.php")
             {
                 // render user header and footer views
@@ -115,8 +115,8 @@
                 require("../views/{$view}");
                 require("../views/footer.php");
             }
-            
-            else if ($view == "login_form.php" || $view == "vlogin_form.php" 
+
+            else if ($view == "login_form.php" || $view == "vlogin_form.php"
             || $view == "register_form.php" || "vregister_form.php")
             {
                 // render user header and footer views
