@@ -1,1 +1,1 @@
-<?php header( 'Location: /includes/config.php' ) ;  ?>
+<?php include_once("includes/config.php"); ?>
