@@ -8,14 +8,14 @@
      * @link https://manual.cs50.net/library/
      * @package CS50
      * @version 5
-     * 
+     *
      * Copyright (c) 2015
      * David J. Malan <malan@harvard.edu>
      * All Rights Reserved
      *
      * BSD 3-Clause License
      * http://www.opensource.org/licenses/BSD-3-Clause
-     * 
+     *
      * Redistribution and use in source and binary forms, with or without
      * modification, are permitted provided that the following conditions are
      * met:
@@ -43,28 +43,28 @@
      */
 
     // require extensions for Janrain's libary
-    if (!extension_loaded("bcmath") && !extension_loaded("gmp"))
-    {
-        trigger_error("CS50 Library requires bcmath or gmp extension module", E_USER_ERROR);
-    }
-    if (!extension_loaded("dom") && !extension_loaded("domxml"))
-    {
-        trigger_error("CS50 Library requires dom or domxml extension module", E_USER_ERROR);
-    }
-    if (!extension_loaded("openssl"))
-    {
-        trigger_error("CS50 Library requires openssl extension module", E_USER_ERROR);
-    }
-
-    // ensure Janrain's library doesn't fail on Windows
-    if (strtoupper(substr(PHP_OS, 0, 3)) === "WIN")
-    {
-        // because /dev/urandom doesn't exist
-        define("Auth_OpenID_RAND_SOURCE", null);
- 
-        // because php_curl.dll doesn't come with ca-bundle.crt
-        define("Auth_Yadis_CURL_OVERRIDE", null);
-    }
+    // if (!extension_loaded("bcmath") && !extension_loaded("gmp"))
+    // {
+    //     trigger_error("CS50 Library requires bcmath or gmp extension module", E_USER_ERROR);
+    // }
+    // if (!extension_loaded("dom") && !extension_loaded("domxml"))
+    // {
+    //     trigger_error("CS50 Library requires dom or domxml extension module", E_USER_ERROR);
+    // }
+    // if (!extension_loaded("openssl"))
+    // {
+    //     trigger_error("CS50 Library requires openssl extension module", E_USER_ERROR);
+    // }
+    //
+    // // ensure Janrain's library doesn't fail on Windows
+    // if (strtoupper(substr(PHP_OS, 0, 3)) === "WIN")
+    // {
+    //     // because /dev/urandom doesn't exist
+    //     define("Auth_OpenID_RAND_SOURCE", null);
+    //
+    //     // because php_curl.dll doesn't come with ca-bundle.crt
+    //     define("Auth_Yadis_CURL_OVERRIDE", null);
+    // }
 
     // CS50
     class CS50
@@ -110,7 +110,7 @@
         }
 
         /**
-         * Returns URL to which user can be directed for 
+         * Returns URL to which user can be directed for
          * authentication via CS50 ID.
          *
          * @param trust_root  URL that CS50 ID should prompt user to trust
@@ -192,7 +192,7 @@
                 return $redirect_url;
             }
         }
- 
+
         /**
          * Iff user was authenticated (at URL returned by getLoginUrl),
          * returns associative array that WILL contain user's Harvard email
@@ -351,7 +351,7 @@
             {
                 trigger_error($handle->errorInfo()[2], E_USER_ERROR);
             }
-   
+
             // if query was SELECT
             // http://stackoverflow.com/a/19794473/5156190
             if ($statement->columnCount() > 0)
